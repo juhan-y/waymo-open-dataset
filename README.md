@@ -1,4 +1,4 @@
-##Waymo 데이터셋 
+# Waymo Open Dataset
 waymo 데이터셋은 거의 모든 dataset중 가장 규모가 크고 다양한 dataset이라고 할 수 있다. 라이다와 카메라의 데이터가 실시간으로 동기화된 데이터가 포함되어있다. 
 다양한 주행환경에서의 이미지를 축적하여 낮과 밤, 새벽과 황혼, 햇빛과 비가 두루 이루어진 데이터이다. 
 라벨링도 3D부분만 1200만개 2D라벨은 120만개가 포함되어있다.
@@ -8,6 +8,7 @@ waymo 데이터셋은 거의 모든 dataset중 가장 규모가 크고 다양한
 ![image](https://user-images.githubusercontent.com/81463668/113805398-6da22500-979b-11eb-9303-fde11be7ece2.png)
 
 #<lidar정보와 camera의 정보가 실시간으로 동기화된 image data>
+
 ![image](https://user-images.githubusercontent.com/81463668/113805401-6f6be880-979b-11eb-87ed-b28fdec67c27.png)
 
 #<여러방향의 카메라와 lidar를 이용한 객체 인식>
