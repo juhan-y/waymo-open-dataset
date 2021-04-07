@@ -1,115 +1,15 @@
-# Waymo Open Dataset
+kitti 데이터셋: kitti dataset은 자율주행 플랫폼을 위한 vision task를 포함하고 있다.
+2D, 3D, Lidar와 같은 여러 버전의 dataset이 존재한다. dataset의 구성은 training 파일에서 image파일은 7481개를 갖고 있으며, label 파일이 txt파일도 그에 맞는 7481개를 가진다.
+testing을 위한 dataset은 image파일이 7518개 있다. testing 파일은 labelling되어 있지않아
+라벨 파일인 txt파일이 존재하지 않는다. 사용자가 원할 시에 직접 labelling을 통해 txt파일을 생성시켜줘야 한다. 추가적으로 설명하면 kitti dataset의 수집 위치는 독일이며, 그 이유로 인해 한국과는 다른 환경에서 데이터가 수집되었으므로 데이터셋이 일반성을 가지지 못해 한국과 같은 다른 나라에서는 독일에서는 인지했던 표지판이나 버스, 화물차 등을 인지하지 못할 수도 있다는 단점이 있다.
+labelling을 통한 라벨이 저장된 txt파일 안에는 객체를 인지하는 바운딩 박스의 왼쪽 위 지점과 오른쪽 아래 지점의 좌표를 가지고 있다.
+kitti dataset의 여러 버전들을 이용해서 여러 가지의 형태로 image를 변환하는 튜토리얼을 다른 사람의 git에서 가져왔다.
+내용은 ladar로 수집된 data를 파노마라형식의 image로, top-view로, 투영된 사진으로 변환시키는 튜토리얼이 있으며, 3D상의 image에서 객체를 추적하는 튜토리얼도 있다.
+모두 파이썬파일로 코드가 구현되어있다.
+![image](https://user-images.githubusercontent.com/81463668/113805143-f2407380-979a-11eb-90d1-7a700e550141.png)
 
-The Waymo Open Dataset was first launched in August 2019 with a perception dataset comprising high resolution sensor data and labels for 1,950 segments. We have released the Waymo Open Dataset publicly to aid the research community in making advancements in machine perception and autonomous driving technology.
+<kitti dataset중 3D>
+![image](https://user-images.githubusercontent.com/81463668/113805150-f53b6400-979a-11eb-8738-36fe7d806348.png)
 
-## March 2021 Update
-
-We expanded the Waymo Open Dataset to also include a motion dataset comprising object trajectories and corresponding 3D maps for over 100,000 segments. We have updated this repository to add support for this new dataset. Please refer to the [Quick Start](docs/quick_start.md).
-
-Additionally, we added instructions and examples for the real-time detection challenges. Please follow these [Instructions](waymo_open_dataset/latency/README.md).
-
-## Website
-
-To read more about the dataset and access it, please visit [https://www.waymo.com/open](https://www.waymo.com/open).
-
-## Contents
-
-This code repository contains:
-
-* Definition of the dataset format
-* Evaluation metrics
-* Helper functions in TensorFlow to help with building models
-
-Please refer to the [Quick Start](docs/quick_start.md).
-
-## License
-This code repository (excluding third_party) is licensed under the Apache License, Version 2.0.  Code appearing in third_party is licensed under terms appearing therein.
-
-The Waymo Open Dataset itself is licensed under separate terms. Please visit [https://waymo.com/open/terms/](https://waymo.com/open/terms/) for details.  Code located at third_party/camera is licensed under a BSD 3-clause copyright license + an additional limited patent license applicable only when the code is used to process data from the Waymo Open Dataset as authorized by and in compliance with the Waymo Dataset License Agreement for Non-Commercial Use.  See third_party/camera for details.
-
-## Citation
-@inproceedings{sun2020scalability,
-  title={Scalability in perception for autonomous driving: Waymo open dataset},
-  author={Sun, Pei and Kretzschmar, Henrik and Dotiwalla, Xerxes and Chouard, Aurelien and Patnaik, Vijaysai and Tsui, Paul and Guo, James and Zhou, Yin and Chai, Yuning and Caine, Benjamin and others},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={2446--2454},
-  year={2020}
-}
-
-## Dataset Metadata
-The following table is necessary for this dataset to be indexed by search
-engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
-<div itemscope itemtype="http://schema.org/Dataset">
-<table>
-  <tr>
-    <th>property</th>
-    <th>value</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td><code itemprop="name">Waymo Open Dataset: An autonomous driving dataset</code></td>
-  </tr>
-  <tr>
-    <td>alternateName</td>
-    <td><code itemprop="alternateName">Waymo Open Dataset</code></td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td><code itemprop="url">https://github.com/waymo-research/waymo-open-dataset</code></td>
-  </tr>
-  <tr>
-    <td>sameAs</td>
-    <td><code itemprop="sameAs">https://github.com/waymo-research/waymo-open-dataset</code></td>
-  </tr>
-    <tr>
-    <td>sameAs</td>
-    <td><code itemprop="sameAs">https://www.waymo.com/open</code></td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td><code itemprop="description">The Waymo Open Dataset is comprised of high-resolution sensor data collected by autonomous vehicles operated by the Waymo Driver in a wide variety of conditions. We’re releasing this dataset publicly to aid the research community in making advancements in machine perception and self-driving technology.</code></td>
-  </tr>
-  <tr>
-    <td>provider</td>
-    <td>
-      <div itemscope itemtype="http://schema.org/Organization" itemprop="provider">
-        <table>
-          <tr>
-            <th>property</th>
-            <th>value</th>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td><code itemprop="name">Waymo</code></td>
-          </tr>
-          <tr>
-            <td>sameAs</td>
-            <td><code itemprop="sameAs">https://en.wikipedia.org/wiki/Waymo</code></td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>license</td>
-    <td>
-      <div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
-        <table>
-          <tr>
-            <th>property</th>
-            <th>value</th>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td><code itemprop="name">Waymo Dataset License Agreement for Non-Commercial Use (August 2019)</code></td>
-          </tr>
-          <tr>
-            <td>url</td>
-            <td><code itemprop="url">https://waymo.com/open/terms/</code></td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-</table>
-</div>
+<kitti dataset중 2D>
+Faster R-CNN, YOLOv3, YOLOv2 알고리즘을 적용하고 객체가 차량, 보행자, 여러 가지혼합된 경우일때의 image이다.
